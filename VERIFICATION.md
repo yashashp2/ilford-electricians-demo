@@ -14,4 +14,6 @@
 - Without JavaScript, inputs and the submit button remained disabled and the fallback explanation was visible.
 - Desktop and mobile screenshots visually reviewed.
 
-Limits: mobile tests use Chromium emulation, not a physical iPhone or Safari. No hosted deployment was performed. No live enquiry was sent. Automated checks and visual review are not a formal accessibility certification.
+GitHub Pages preparation: static export and TypeScript checks passed. All nine applicable browser scenarios also passed against the exported site at `/ilford-electricians-demo/`, including asset loading and no-send form behaviour. One duplicate mobile width-matrix test is intentionally skipped. The deployment workflow builds and publishes `out/` on pushes to `main`.
+
+Limits: mobile tests use Chromium emulation, not a physical iPhone or Safari. No live enquiry was sent. Automated checks and visual review are not a formal accessibility certification.

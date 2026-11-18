@@ -2,7 +2,24 @@
 
 A complete responsive homepage built with Next.js App Router, TypeScript, Tailwind CSS 4, Manrope and Lucide. This is an unauthorised speculative concept, not the official business website.
 
-Source repository: https://github.com/yashashp2/ilford-electricians-demo (private).
+Source repository: https://github.com/yashashp2/ilford-electricians-demo
+
+GitHub Pages URL: https://yashashp2.github.io/ilford-electricians-demo/
+
+## GitHub Pages hosting
+
+`.github/workflows/deploy-pages.yml` builds and deploys every push to `main`. Repository Settings → Pages must use **GitHub Actions** as the source. The workflow can also be run manually from the Actions tab.
+
+The Pages build uses a static export, the `/ilford-electricians-demo` base path and local image files. Preview that exact build with:
+
+```powershell
+npm run build:pages
+npm run preview:pages
+```
+
+Open http://127.0.0.1:4173/ilford-electricians-demo/. The ordinary Next.js development and server commands below remain available.
+
+Pages has no Next.js image-optimisation server or custom response headers. The export serves the compact local images directly and retains HTML noindex metadata. Its robots.txt is included under the repository subpath; only a domain-root robots.txt governs crawlers. The form remains browser-only and never sends enquiries.
 
 ## Run locally
 
@@ -28,7 +45,7 @@ npm run start
 4. Deploy, then check the mobile menu, images, telephone/email links and demo form at the returned preview URL.
 5. Retain the independent-concept disclosures, placeholder labels and noindex settings. Do not attach the business's official domain or present this as an authorised site.
 
-Alternatively, from this directory, run `npx vercel` and follow the prompts to create a preview deployment. Publishing is not part of the local handoff; this project has not been deployed.
+Alternatively, from this directory, run `npx vercel` and follow the prompts to create a preview deployment. Vercel is an optional alternative; the requested hosting target is GitHub Pages.
 
 Official deployment reference: https://vercel.com/docs/frameworks/full-stack/nextjs
 
@@ -48,7 +65,7 @@ The form has no API route, server action, email service, analytics, database or 
 
 The layout includes semantic headings, a skip link, visible keyboard focus, labelled fields, linked error descriptions, a live confirmation, native keyboard-accessible FAQ disclosures and reduced-motion support. It uses responsive Next Image optimisation, a priority hero and lazy-loaded supporting images. Manrope is downloaded at build time and served locally by Next.js; initial builds therefore need internet access.
 
-Search indexing is intentionally blocked through metadata, robots.txt and the X-Robots-Tag header. Do not remove these just to improve SEO for an unauthorised demo. The page still has useful title/description metadata and semantic structure. No business schema, fabricated reviews, credentials, guarantees, pricing or opening hours have been added.
+Search indexing is intentionally discouraged through noindex metadata. Next.js server hosting also supplies robots.txt and the X-Robots-Tag header; see the GitHub Pages limitations above. Do not remove these just to improve SEO for an unauthorised demo. The page still has useful title/description metadata and semantic structure. No business schema, fabricated reviews, credentials, guarantees, pricing or opening hours have been added.
 
 The journey is proposed, not a verified business process. Nearby places are examples requiring confirmation. The area graphic is a decorative placeholder, not a geographic or coverage map. Images do not depict staff or completed projects.
 

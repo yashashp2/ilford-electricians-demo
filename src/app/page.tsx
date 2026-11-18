@@ -20,7 +20,14 @@ import {
 } from "lucide-react";
 import Header, { Wordmark } from "@/components/Header";
 import QuoteForm from "@/components/QuoteForm";
-import { business, faqs, gallery, navigation, services } from "@/data/site";
+import {
+  assetPath,
+  business,
+  faqs,
+  gallery,
+  navigation,
+  services,
+} from "@/data/site";
 const icons = {
   repairs: Wrench,
   testing: ClipboardCheck,
@@ -50,7 +57,7 @@ export default function Home() {
       <main id="main">
         <section className="hero" id="home" aria-labelledby="hero-heading">
           <Image
-            src="/images/hero.webp"
+            src={assetPath("/images/hero.webp")}
             alt="AI-generated illustration of an electrician inspecting a domestic consumer unit; not actual company staff"
             fill
             priority
@@ -191,7 +198,7 @@ export default function Home() {
           <div className="container about-grid">
             <div className="about-photo">
               <Image
-                src="/images/hero.webp"
+                src={assetPath("/images/hero.webp")}
                 alt="Illustrative AI-generated electrician; not a photograph of the business or its staff"
                 fill
                 sizes="(max-width: 760px) 100vw, 50vw"
@@ -319,7 +326,7 @@ export default function Home() {
                 <figure key={item.title}>
                   <div className="gallery-photo">
                     <Image
-                      src={item.src}
+                      src={assetPath(item.src)}
                       alt={item.alt}
                       fill
                       sizes="(max-width: 760px) 100vw, 33vw"

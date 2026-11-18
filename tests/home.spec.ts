@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 test("form stays disabled without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto("http://127.0.0.1:3000/");
+  await page.goto(process.env.TEST_BASE_URL ?? "http://127.0.0.1:3000/");
   await expect(page.getByLabel("Your name")).toBeDisabled();
   await expect(
     page.getByRole("button", { name: "Preview quote request" }),
@@ -17,7 +17,7 @@ test("tablet and small-phone widths fit the viewport", async ({
   test.skip(testInfo.project.name !== "desktop");
   for (const width of [320, 768, 1024]) {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto("/");
+    await page.goto(process.env.TEST_BASE_URL ?? "/");
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= window.innerWidth,
@@ -30,7 +30,7 @@ test("page, responsive layout, images, contacts and disclosure", async ({
 }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  const response = await page.goto("/");
+  const response = await page.goto(process.env.TEST_BASE_URL ?? "/");
   expect(response?.status()).toBe(200);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Reliable Electriciansin Ilford.",
@@ -80,7 +80,7 @@ test("page, responsive layout, images, contacts and disclosure", async ({
 test("demo form validates and never submits or persists entries", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto(process.env.TEST_BASE_URL ?? "/");
   await page.getByRole("button", { name: "Preview quote request" }).click();
   await expect(page.locator("form").getByRole("alert")).toHaveText(
     "Please check the highlighted fields.",
@@ -121,7 +121,7 @@ test("demo form validates and never submits or persists entries", async ({
   await expect(page.getByLabel("Your name")).toHaveValue("");
 });
 test("navigation and keyboard FAQ", async ({ page }, testInfo) => {
-  await page.goto("/");
+  await page.goto(process.env.TEST_BASE_URL ?? "/");
   if (testInfo.project.name === "mobile") {
     await page.getByRole("button", { name: "Open menu" }).click();
     await expect(
