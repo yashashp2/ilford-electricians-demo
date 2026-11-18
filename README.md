@@ -2,6 +2,8 @@
 
 A complete responsive homepage built with Next.js App Router, TypeScript, Tailwind CSS 4, Manrope and Lucide. This is an unauthorised speculative concept, not the official business website.
 
+Source repository: https://github.com/yashashp2/ilford-electricians-demo (private).
+
 ## Run locally
 
 Use Node.js 20.9 or newer (Node 24 recommended).
